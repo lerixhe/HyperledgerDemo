@@ -1,11 +1,10 @@
+package models
 /*
 这里处理与区块链的交互操作：
 1.update
 2.query
 输入：方法名称，参数组（包含key，value）
 */
-package models
-
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
@@ -58,8 +57,8 @@ func NewChainCodeSpec()*ChainCodeSpec{
 }
 /* 查询 */
 func (this *ChainCodeSpec) ChaincodeQuery(function string, chaincodeArgs [][]byte) (response []byte, err error) {
-	res :=
-	return nil, nil
+	res :=channel.QueryRequest{this.chaincodeId,function,chaincodeArgs}
+	return this.client.Query(res)
 }
 
 /* 更新*/

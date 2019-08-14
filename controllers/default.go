@@ -1,6 +1,8 @@
 package controllers
 
 import (
+	"HyperledgerDemo/models"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 )
@@ -28,6 +30,7 @@ func (c *MainController) GetValue() {
 	logs.Info("key:" + key)
 
 	// TODO，与区块链交互，取得返回值，写入response
+	ccs := models.NewChainCodeSpec()
 
 	var response []byte
 	// 做出成功回复
